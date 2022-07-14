@@ -7,51 +7,25 @@ public class Main {
         guide();
 
         Scanner input = new Scanner(System.in);
-        int choice;
+        int is_ready;
         do {
             System.out.print("if you are ready to play enter 1  :    ");
-            choice = input.nextInt();
-        }while (choice != 1);
-        System.out.println(get_number());
+            is_ready = input.nextInt();
+        }while (is_ready != 1);
 
+        Play_time.main();
 
-
-    }
-
-    public static int get_number(){
-        Scanner input = new Scanner(System.in);
-
-        boolean condition = true;
-        int choice = 0;
-        do {
-            try {
-                do {
-                    System.out.print("enter the section you want to play(1-9) :   ");
-                    choice = input.nextInt();
-                }while ((choice<0)||(choice>9));
-                condition = false;
-            } catch (Exception e) {
-                System.out.println("Please enter an Integer");
-                input.nextLine();
-            }
-        }while(condition);
-
-        return choice;
-    }
-
-
-
-
+        }
 
 
 
     //a guide on how to play the game
     public static void guide(){
-        char[][] board = {{'1','|','2','|','3'},
+        char[][] board = {{'7','|','8','|','9'},
                 {'-','+','-','+','-'},
                 {'4','|','5','|','6'},
                 {'-','+','-','+','-'},
-                {'7','|','8','|','9'}
+                {'1','|','2','|','3'}
         };
         System.out.println("look at this game board");
         Print.print_board(board);
