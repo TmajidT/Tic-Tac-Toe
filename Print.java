@@ -1,7 +1,5 @@
 // to print stuff
 public class Print{
-
-
     //prints board game
     public static void print_board(char[][] board){
         System.out.println();
@@ -14,9 +12,4 @@ public class Print{
         }
         System.out.print("\n");
     }
-
-
-
-
-
 }

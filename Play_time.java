@@ -10,21 +10,16 @@ public class Play_time {
                 {' ','|',' ','|',' '}
         };
 
-
         int[] not_available = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
         int choice;
         char x_o;
-        for (int i = 0; i < 9; i++) {
+        char result = '0'; //to see if game is over
+
+        for (int i = 0; i < 9; i++) {               //main loop for the game
             if (i%2==0)
                 x_o = 'X';
             else
                 x_o = 'O';
-
-
-
-            //check if the game is over ====> add later
-
-
 
 
             choice = get_number(not_available);
@@ -68,8 +63,23 @@ public class Play_time {
                     break;
             }
 
-
             Print.print_board(board);
+
+            result = GameOver.main(board);      //check if the game is over
+            if (result != '0'){
+                if (result == 'X')
+                    System.out.println("---------------------\nCongratulation player number one [X], you just WON the game!!");
+                else if (result == 'O')
+                    System.out.println("---------------------\nCongratulation player number two [O], you just WON the game!!");
+
+                break;
+            }
+
+
+        } //end of the main loop
+
+        if (result == '0'){
+            System.out.println("---------------------\nDRAW");
         }
 
     }
@@ -81,7 +91,6 @@ public class Play_time {
     //not_available[] will show us if a section is used before this by another player
     public static int get_number(int[] not_available){
         Scanner input = new Scanner(System.in);
-
 
 
         boolean condition = true;

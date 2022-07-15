@@ -8,13 +8,23 @@ public class Main {
 
         Scanner input = new Scanner(System.in);
         int is_ready;
+        boolean condition = true;
+
         do {
-            System.out.print("if you are ready to play enter 1  :    ");
-            is_ready = input.nextInt();
-        }while (is_ready != 1);
+            try {
+                do {
+                    System.out.print("if you are ready to play enter 1  :    ");
+                    is_ready = input.nextInt();
+                } while (is_ready != 1);
+                condition = false;
+            } catch (Exception e) {
+                System.out.println("Please enter an Integer");
+                input.nextLine();
+            }
+        }while (condition);
+
 
         Play_time.main();
-
         }
 
 
